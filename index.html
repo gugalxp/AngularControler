@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html ng-app="MyApp">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div ng-controller="dadosPessoais">
+
+        <h2>Dados Pessoais</h2>
+        <ul>
+            <li>
+             <p>
+                   {{name}} Gosta de comer Pão doce, Pão salgado, Coxinha. <br />
+                   {{name}} Tem {{idade}} anos de idade!!
+            </p>              
+        </li>
+        </ul>
+        <hr>
+    </div>
+
+    <div ng-controller="dadosPessoais">
+
+        <h2>Dados Carreira</h2>
+        <ul>
+        
+         <li ng-repeat="dados in dadosCarreira">
+                
+        <p>{{dados.cargo}}</p>
+        <p>{{dados.area}}</p>
+        <p>{{dados.cargahoraria}}</p>
+                
+        </li>   
+        </ul>
+
+
+    </div>
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+    <script type="text/javascript">
+
+    var app = angular.module('MyApp', []);
+
+    app.controller('dadosPessoais', ['$scope', function($scope) {
+
+    date = new Date().getFullYear();
+    anoAtual = date - 2000;    
+    
+    $scope.name = 'Gustavo';
+    $scope.idade =  anoAtual;
+    
+    $scope.dadosCarreira = [
+
+   {cargo: "Programador"},  
+   {area: "Técnologia"},
+   {cargahoraria: "8h"}
+
+    ];
+}
+  ]);
+  
+    </script>
+</body>
+</html>
